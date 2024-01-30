@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="model_logic_grievance_form_view" model="ir.ui.view">
+        <field name="name">Grievance Form</field>
+        <field name="model">grievance.form</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Types">
+                <header>
+                    <field name="state" widget="statusbar"/>
+                    <button name="action_in_progress" type="object" class="oe_highlight"
+                            string="In Progress" states="draft"
+                            />
+                    <button name="action_completed" type="object" class="oe_highlight" states="draft,in_progress"
+                            string="Completed"/>
+                    <button string="Cancel" name="action_cancelled" type="object" states="draft,in_progress"
+                            />
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="batch"/>
+                            <field name="type"/>
+                            <field name="mode_of_study"/>
+                            <field name="description"/>
+                            <field name="priority"/>
+                            <field name="expected_resolution_date"/>
+
+                        </group>
+                        <group>
+                            <field name="type_of_issue"/>
+                            <field name="assign_to"/>
+                            <field name="assign_to_users" widget="many2many_tags"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="model_grievance_list_view" model="ir.ui.view">
+        <field name="name">Grievance</field>
+        <field name="model">grievance.form</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="batch"/>
+                <field name="type"/>
+                <field name="state" widget="badge"/>
+            </tree>
+
+        </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="model_logic_grievance_action">
+        <field name="name">Grievance</field>
+        <field name="res_model">grievance.form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Grievance Form"
+              id="model_logic_grievance_form_main_menu"
+              web_icon="grievance_form/static/description/icon.png"
+              sequence="1"/>
+
+    <menuitem name="Grievance"
+              id="model_grievance_menu"
+              action="model_logic_grievance_action"
+              parent="model_logic_grievance_form_main_menu"
+              sequence="2"/>
+
+
+</odoo>

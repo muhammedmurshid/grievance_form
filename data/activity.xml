@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="mail_activity_grievance_form" model="mail.activity.type">
+        <field name="name">Grievance Form</field>
+        <field name="res_model_id" ref="grievance_form.model_grievance_form"/>
+        <field name="delay_count">30</field>
+    </record>
+</odoo>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="model_logic_grievance_form_types_view" model="ir.ui.view">
+        <field name="name">Grievance Type</field>
+        <field name="model">grievance.form.type</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Types">
+                <header>
+                    <!--                    <field name="state" widget="statusbar"/>-->
+                    <!--                    <button name="action_create_job_position" type="object" class="oe_highlight"-->
+                    <!--                            string="Create Recruitment" states="draft"-->
+                    <!--                            groups="logic_recruitment.group_recruitment_head"/>-->
+                    <!--                    <button name="action_hr_approval" type="object" class="oe_highlight" states="hr_approval"-->
+                    <!--                            groups="logic_recruitment.group_recruitment_hr_manager" string="Approve"/>-->
+                    <!--                    <button string="Reject" name="action_rejected_recruitment" type="object" states="hr_approval"-->
+                    <!--                            groups="logic_recruitment.group_recruitment_hr_manager"/>-->
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="type"/>
+                            <field name="assigned_to"/>
+                            <field name="assigned_to_users" widget="many2many_tags"/>
+
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="model_grievance_list_types_view" model="ir.ui.view">
+        <field name="name">Grievance</field>
+        <field name="model">grievance.form.type</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="type"/>
+                <field name="assigned_to"/>
+                <field name="assigned_to_users" widget="many2many_tags"/>
+            </tree>
+
+        </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="model_logic_grievance_types_action">
+        <field name="name">Grievance Types</field>
+        <field name="res_model">grievance.form.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Grievance Types"
+              id="model_grievance_types_menu"
+              action="model_logic_grievance_types_action"
+              parent="model_logic_grievance_form_main_menu"
+              sequence="3"/>
+
+
+</odoo>
