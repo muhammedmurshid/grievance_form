@@ -22,7 +22,7 @@ class GrievanceWebsiteForm(http.Controller):
             'mode_of_study': kw.get('mode_of_study'),
             'description': kw.get('description'),
             'priority': kw.get('priority'),
-            'expected_resolution_date': kw.get('expecting_closing'),
+            # 'expected_resolution_date': kw.get('expecting_closing'),
             'type_of_issue': kw.get('type_of_issue'),
 
         })
