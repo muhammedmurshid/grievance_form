@@ -10,13 +10,17 @@
                     <field name="state" widget="statusbar"/>
                     <button name="action_in_progress" type="object" class="oe_highlight"
                             string="In Progress" states="draft"
-                            />
+                    />
                     <button name="action_completed" type="object" class="oe_highlight" states="draft,in_progress"
                             string="Completed"/>
                     <button string="Cancel" name="action_cancelled" type="object" states="draft,in_progress"
-                            />
+                    />
                 </header>
                 <sheet>
+                    <widget name="web_ribbon" title="Completed" bg_color="bg-success"
+                            attrs="{'invisible': [('state', '!=', 'completed')]}"/>
+                    <widget name="web_ribbon" title="cancelled" bg_color="bg-danger"
+                            attrs="{'invisible': [('state', '!=', 'cancelled')]}"/>
                     <group>
                         <group>
                             <field name="name"/>
@@ -52,7 +56,9 @@
                 <field name="name"/>
                 <field name="batch"/>
                 <field name="type"/>
-                <field name="state" widget="badge"/>
+                <field name="state" widget="badge" decoration-success="state == 'completed'"
+                       decoration-primary="state == 'in_progress'" decoration-info="state == 'draft'"
+                       decoration-danger="state == 'cancelled'"/>
             </tree>
 
         </field>
