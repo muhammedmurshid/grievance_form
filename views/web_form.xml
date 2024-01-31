@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id="grievance_online_form">
+    <template id="logic_grievance_online_form">
+        <title>Logic Grievance Form</title>
         <t t-call="website.layout">
             <div id="wrap" class="oe_structure oe_empty">
                 <section class="s_website_form" data-vcss="001" data-snippet="s_website_form">
                     <div class="container">
                         <form action="/grievance_form/submit/" method="post" enctype="multipart/form-data"
                               class="o_mark_required" data-mark="*" data-model_name="" data-success-page="">
+                            <br></br>
+                            <h3 align="center" style="background-color:#f1f2eb">
+                                <u>LOGIC GRIEVANCE FORM</u>
+                            </h3>
+                            <br></br>
+
                             <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
                             <div class="s_website_form_rows row s_col_no_bgcolor">
+
                                 <div class="form-group col-12 s_website_form_field s_website_form_required"
                                      data-type="char" data-name="Field">
                                     <div class="row s_col_no_resize s_col_no_bgcolor">
@@ -129,7 +137,8 @@
                                             <span class="s_website_form_mark">*</span>
                                         </label>
                                         <div class="col-sm">
-                                            <select name="type_of_issue" t-attf-class="form-control s_website_form_input"
+                                            <select name="type_of_issue"
+                                                    t-attf-class="form-control s_website_form_input"
                                                     required="1">
                                                 <t t-foreach="type or []" t-as="type_of_issue">
                                                     <option t-att-value="type_of_issue.id">

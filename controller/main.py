@@ -9,7 +9,7 @@ class GrievanceWebsiteForm(http.Controller):
         values = {
             'type': type
         }
-        return request.render("grievance_form.grievance_online_form", values)
+        return request.render("grievance_form.logic_grievance_online_form", values)
 
     @http.route(['/grievance_form/submit'], type='http', auth="public", website=True, csrf=False)
     def grievance_form_submit(self, **kw):
