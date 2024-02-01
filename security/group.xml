@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="0">
+        <record model="ir.module.category" id="module_logic_grievance_form_groups">
+            <field name="name">Grievance Groups</field>
+            <field name="sequence">20</field>
+            <field name="visible" eval="0"/>
+        </record>
+        <record id="logic_grievance_marketing_heads" model="res.groups">
+            <field name="name">Marketing Head</field>
+            <field name="category_id" ref="module_logic_grievance_form_groups"/>
+        </record>
+
+    </data>
+</odoo>

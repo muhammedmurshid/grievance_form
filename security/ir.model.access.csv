@@ -1,6 +1,8 @@
 "id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
 "access_grievance_form_coordinator","access_grievance_form","model_grievance_form","logic_base.coordinator_logic_base",1,1,1,1
 "access_grievance_form_head","access_grievance_form","model_grievance_form","logic_base.admin_logic_base",1,1,1,1
+"access_grievance_form_marketing_head","access_grievance_form","model_grievance_form","logic_grievance_marketing_heads",1,1,1,1
 
 "access_grievance_form_type_coord","access_grievance_form_type","model_grievance_form_type","logic_base.coordinator_logic_base",1,1,1,1
 "access_grievance_form_type_head","access_grievance_form_type","model_grievance_form_type","logic_base.admin_logic_base",1,1,1,1
+"access_grievance_form_type_marketing_head","access_grievance_form_type","model_grievance_form_type","logic_grievance_marketing_heads",1,1,1,1
