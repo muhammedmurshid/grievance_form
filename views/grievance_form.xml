@@ -27,11 +27,11 @@
                             <field name="phone_number" widget="phone"/>
                             <field name="email_address" widget="email"/>
                             <field name="batch"/>
-                            <field name="type"/>
+                            <field name="faculty"/>
+                            <!--                            <field name="type"/>-->
                             <field name="mode_of_study"/>
                             <field name="description"/>
                             <field name="priority"/>
-                            <field name="expected_resolution_date"/>
 
                         </group>
                         <group>
@@ -39,6 +39,7 @@
                             <field name="attach_file" widget="binary"/>
                             <field name="assign_to"/>
                             <field name="assign_to_users" widget="many2many_tags"/>
+                            <field name="expected_resolution_date"/>
                         </group>
                     </group>
                 </sheet>
@@ -59,7 +60,9 @@
                 <field name="name"/>
                 <field name="phone_number" widget="phone"/>
                 <field name="batch"/>
-                <field name="type"/>
+                <field name="faculty"/>
+                <field name="type_of_issue" />
+                <!--                <field name="type"/>-->
                 <field name="state" widget="badge" decoration-success="state == 'completed'"
                        decoration-primary="state == 'in_progress'" decoration-info="state == 'draft'"
                        decoration-danger="state == 'cancelled'"/>

@@ -20,7 +20,7 @@ class GrievanceWebsiteForm(http.Controller):
         request.env['grievance.form'].sudo().create({
             'name': kw.get('name'),
             'batch': kw.get('batch'),
-            'type': kw.get('type'),
+            'faculty': kw.get('faculty'),
             'email_address': kw.get('email'),
             'phone_number': kw.get('phone'),
             'mode_of_study': kw.get('mode_of_study'),
