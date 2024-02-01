@@ -27,15 +27,20 @@
                             <field name="phone_number" widget="phone"/>
                             <field name="email_address" widget="email"/>
                             <field name="batch"/>
+                            <field name="course_id"/>
+                            <field name="branch_id"/>
                             <field name="faculty"/>
+                            <field name="coordinator"/>
                             <!--                            <field name="type"/>-->
-                            <field name="mode_of_study"/>
-                            <field name="description"/>
-                            <field name="priority"/>
+
 
                         </group>
                         <group>
+                            <field name="mode_of_study"/>
+                            <field name="description"/>
                             <field name="type_of_issue"/>
+                            <field name="priority"/>
+
                             <field name="attach_file" widget="binary"/>
                             <field name="assign_to"/>
                             <field name="assign_to_users" widget="many2many_tags"/>
@@ -61,7 +66,7 @@
                 <field name="phone_number" widget="phone"/>
                 <field name="batch"/>
                 <field name="faculty"/>
-                <field name="type_of_issue" />
+                <field name="type_of_issue"/>
                 <!--                <field name="type"/>-->
                 <field name="state" widget="badge" decoration-success="state == 'completed'"
                        decoration-primary="state == 'in_progress'" decoration-info="state == 'draft'"

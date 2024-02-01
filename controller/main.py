@@ -7,8 +7,12 @@ class GrievanceWebsiteForm(http.Controller):
     @http.route(['/grievance_form'], type='http', auth="public", website=True, csrf=False)
     def grievance_form(self):
         type = request.env['grievance.form.type'].sudo().search([])
+        course = request.env['logic.base.courses'].sudo().search([])
+        branch = request.env['logic.base.branches'].sudo().search([])
         values = {
-            'type': type
+            'type': type,
+            'course': course,
+            'branch': branch
         }
         return request.render("grievance_form.logic_grievance_online_form", values)
 
@@ -26,6 +30,9 @@ class GrievanceWebsiteForm(http.Controller):
             'mode_of_study': kw.get('mode_of_study'),
             'description': kw.get('description'),
             'priority': kw.get('priority'),
+            'course_id': kw.get('course_id'),
+            'branch_id': kw.get('branch_id'),
+            'coordinator': kw.get('coordinator'),
             # 'expected_resolution_date': kw.get('expecting_closing'),
             'attach_file': base64.b64encode(file.read()),
             'type_of_issue': kw.get('type_of_issue'),
